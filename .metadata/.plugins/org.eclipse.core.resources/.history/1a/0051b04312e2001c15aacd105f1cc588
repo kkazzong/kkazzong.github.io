@@ -1,0 +1,34 @@
+package com.kkaboard.api.server.test.board;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.kkaboard.api.server.dto.input.BoardInputDto;
+import com.kkaboard.api.server.service.BoardService;
+
+@SpringBootTest
+public class BoardTest {
+	
+	@Autowired
+	private BoardService boardService;
+	
+	@DisplayName("보드 컨텍스트로드")
+	@Test
+	void contextLoads() {
+		assert boardService != null;
+	}
+	
+	@DisplayName("게시판 추가")
+	@Test
+	public void add() throws Exception{
+		BoardInputDto input = new BoardInputDto();
+		input.setWriter_name("스프링부트테스트");
+		input.setBoard_password("asdf1234");
+		input.setTitle("안녕?");
+		input.setContent("하세여?");
+		
+		assert boardService.addBoard(input) == 1; 
+	}
+}

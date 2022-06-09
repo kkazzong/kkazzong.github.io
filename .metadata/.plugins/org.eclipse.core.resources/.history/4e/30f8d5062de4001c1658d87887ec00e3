@@ -1,0 +1,14 @@
+package com.kkaboard.api.server.service.impl;
+
+import com.kkaboard.api.server.dto.input.ImageInputDto;
+import com.kkaboard.api.server.service.ImageService;
+
+public class ImageServiceImpl implements ImageService {
+
+	@Override
+	public int addImage(ImageInputDto imageInputDto) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

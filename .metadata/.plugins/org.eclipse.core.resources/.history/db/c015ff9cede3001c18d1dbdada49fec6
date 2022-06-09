@@ -1,0 +1,10 @@
+package com.kkaboard.api.server.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class ReplyController {
+
+	@Resource(name="replyService")
+	private ReplyService replyService;
+}

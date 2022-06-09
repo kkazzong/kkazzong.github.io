@@ -1,0 +1,16 @@
+# port
+server.port=8021
+
+# encoding
+server.servlet.encoding.charset=utf-8
+
+# db
+#spring.datasource.driver-class-name=net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+#spring.datasource.url=jdbc:log4jdbc:mysql://tpcg.asuscomm.com:3306/kkaboard?serverTimezone=UTC&characterEncoding=UTF-8
+#spring.datasource.username=root
+#spring.datasource.password=1qaz2wsx3edc
+
+# mybatis
+mybatis.mapper-locations=classpath:mappers/*.xml
+mybatis.configuration.jdbc-type-for-null=NULL
+mybatis.type-aliases-package=com.kkaboard.api.server.dto,com.kkaboard.api.server.dto.output,com.kkaboard.api.server.dto.input

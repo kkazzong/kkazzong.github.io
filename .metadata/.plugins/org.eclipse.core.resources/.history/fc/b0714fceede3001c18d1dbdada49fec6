@@ -1,0 +1,24 @@
+package com.kkaboard.api.server.controller;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.kkaboard.api.server.dto.output.ReplyOutputDto;
+import com.kkaboard.api.server.service.ReplyService;
+
+@RestController
+public class ReplyController {
+
+	@Resource(name="replyService")
+	private ReplyService replyService;
+	
+	@GetMapping("/reply/get-reply-all/{boardNo}")
+	public List<ReplyOutputDto> getReplyAll(@PathVariable int boardNo){
+		return replyService.getReplyAll(boardNo);
+	}
+}

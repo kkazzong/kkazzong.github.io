@@ -1,0 +1,9 @@
+package com.kkaboard.api.server.service;
+
+import com.kkaboard.api.server.dto.input.ImageInputDto;
+
+public interface ImageService {
+
+	
+	public int addImage(ImageInputDto imageInputDto);
+}

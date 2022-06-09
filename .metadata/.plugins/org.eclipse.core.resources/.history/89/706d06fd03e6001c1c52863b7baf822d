@@ -1,0 +1,5 @@
+package com.kkaboard.api.server.dto.output;
+
+public class ImageOutputDto {
+
+}

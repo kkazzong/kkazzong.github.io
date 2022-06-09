@@ -1,0 +1,5 @@
+package com.kkaboard.api.server.dto.input;
+
+public class BoardInputDto {
+
+}

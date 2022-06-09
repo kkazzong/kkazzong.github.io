@@ -1,0 +1,15 @@
+package com.kkaboard.api.server.dao;
+
+import org.springframework.stereotype.Repository;
+
+import com.kkaboard.api.server.dto.input.ImageInputDto;
+
+@Repository("imageDao")
+public class ImageDao extends AbstractDAO {
+	
+	private final String dbName = "imageDB";
+	
+	public int addImage(ImageInputDto imageInputDto) {
+		return (int)addImage(dbName+".addImage", imageInputDto);
+	}
+}

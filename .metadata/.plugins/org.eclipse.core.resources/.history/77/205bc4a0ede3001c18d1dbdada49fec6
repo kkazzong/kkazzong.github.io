@@ -1,0 +1,17 @@
+package com.kkaboard.api.server.service.impl;
+
+import java.util.List;
+
+import com.kkaboard.api.server.dto.output.ReplyOutputDto;
+import com.kkaboard.api.server.service.ReplyService;
+
+@Service("replyService")
+public class ReplyServiceImpl implements ReplyService {
+
+	@Override
+	public List<ReplyOutputDto> getReplyAll(int board_no) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

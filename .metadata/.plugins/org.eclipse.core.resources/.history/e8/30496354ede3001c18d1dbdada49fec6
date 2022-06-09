@@ -1,0 +1,6 @@
+package com.kkaboard.api.server.dao;
+
+@Repository("replyDao")
+public class ReplyDao extends AbstractDAO {
+
+}

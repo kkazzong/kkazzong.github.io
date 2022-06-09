@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value=""/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="&lt;select id=&quot;getReplyAll&quot; parameterType=&quot;int&quot; resultType=&quot;ReplyOutputDto&quot;&gt;"/>
+			<item value="getReplyAll"/>
+			<item value="&#x0A;&#x09;&lt;select id=&quot;getBoardAll&quot; resultType=&quot;BoardOutputDto&quot;&gt;&#x0A;&#x09;&#x09;select a.*&#x0A;&#x09;&#x09;from (&#x0A;&#x09;&#x09;&#x09;select&#x0A;&#x09;&#x09;&#x09;&#x09;@rownum := @rownum +1 as rn,&#x0A;&#x09;&#x09;&#x09;&#x09;b.board_no as board_no,&#x0A;&#x09;&#x09;&#x09;&#x09;b.title as title,&#x0A;&#x09;&#x09;&#x09;&#x09;b.writer_name as writer_name,&#x0A;&#x09;&#x09;&#x09;&#x09;b.view_cnt as view_cnt,&#x0A;&#x09;&#x09;&#x09;&#x09;(select count(*) from kka_reply where board_no = b.board_no) as reply_cnt,&#x0A;&#x09;&#x09;&#x09;&#x09;date_format(b.write_dt, &apos;%Y-%m-%d %H:%i&apos;) as write_dt&#x0A;&#x09;&#x09;&#x09;from kka_board b, (select @rownum := 0) tmp&#x0A;&#x09;&#x09;) a&#x0A;&#x09;&lt;/select&gt;&#x0A;&#x09;&#x0A;&#x09;&lt;update id=&quot;plusViewCnt&quot; parameterType=&quot;int&quot;&gt;&#x0A;&#x09;&#x09;update kka_board&#x0A;&#x09;&#x09;set view_cnt = ifnull(view_cnt,0) + 1&#x0A;&#x09;&#x09;where board_no = #{board_no}&#x0A;&#x09;&lt;/update&gt;&#x0A;&#x09;&#x0A;&#x09;&lt;insert id=&quot;addBoard&quot; parameterType=&quot;BoardInputDto&quot;&gt;&#x0A;&#x09;&#x09;insert into kka_board&#x0A;&#x09;&#x09;&#x09;(&#x0A;&#x09;&#x09;&#x09;&#x09;writer_name,&#x0A;&#x09;&#x09;&#x09;&#x09;board_password,&#x0A;&#x09;&#x09;&#x09;&#x09;title,&#x0A;&#x09;&#x09;&#x09;&#x09;content&#x0A;&#x09;&#x09;&#x09;)&#x0A;&#x09;&#x09;values&#x0A;&#x09;&#x09;&#x09;(&#x0A;&#x09;&#x09;&#x09;&#x09;#{writer_name},&#x0A;&#x09;&#x09;&#x09;&#x09;#{board_password},&#x0A;&#x09;&#x09;&#x09;&#x09;#{title},&#x0A;&#x09;&#x09;&#x09;&#x09;#{content}&#x0A;&#x09;&#x09;&#x09;)&#x0A;&#x09;&lt;/insert&gt;&#x0A;&#x09;&#x0A;&#x09;&lt;select id=&quot;getBoardPsd&quot; parameterType=&quot;int&quot; resultType=&quot;String&quot;&gt;&#x0A;&#x09;&#x09;select board_password&#x0A;&#x09;&#x09;from kka_board&#x0A;&#x09;&#x09;where board_no = #{board_no}&#x0A;&#x09;&lt;/select&gt;&#x0A;&#x09;&#x0A;&#x09;&lt;update id=&quot;updBoard&quot; parameterType=&quot;BoardInputDto&quot;&gt;&#x0A;&#x09;&#x09;update kka_board&#x0A;&#x09;&#x09;&lt;set&gt;&#x0A;&#x09;&#x09;&#x09;title = #{title},&#x0A;&#x09;&#x09;&#x09;content = #{content},&#x0A;&#x09;&#x09;&#x09;board_password = #{board_password},&#x0A;&#x09;&#x09;&#x09;update_dt = now()&#x0A;&#x09;&#x09;&lt;/set&gt;&#x0A;&#x09;&#x09;where board_no = #{board_no}&#x0A;&#x09;&lt;/update&gt;&#x0A;&#x09;&#x0A;&#x09;&lt;delete id=&quot;delBoard&quot; parameterType=&quot;int&quot;&gt;&#x0A;&#x09;&#x09;delete from kka_board &#x0A;&#x09;&#x09;where board_no = #{board_no}&#x0A;&#x09;&lt;/delete&gt;"/>
+			<item value="spring-boot-starter-tomcat"/>
+			<item value="() {"/>
+			<item value="ride"/>
+			<item value="&lt;update id=&quot;plusViewCnt&quot; parameterType=&quot;int&quot;&gt;"/>
+			<item value="getBoard"/>
+		</list>
+		<list key="replacehistory">
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="574"/>
+		<item key="DIALOG_Y_ORIGIN" value="169"/>
+		<item key="DIALOG_WIDTH" value="292"/>
+		<item key="DIALOG_HEIGHT" value="402"/>
+		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
+	</section>
+</section>

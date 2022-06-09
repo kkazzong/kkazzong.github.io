@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="boardDB">
+
+	<select id="getBoard" parameterType="int" resultType="BoardOutputDto">
+		select
+			board_no,
+			title,
+			content
+		from kka_boar
+		where board_no = #{boardNo}
+	</select>
+	
+	<update id="plusViewCnt" parameterType="int">
+		update kka_board
+		set view_cnt = ifnull(view_cnt,0) + 1
+		where board_no = #{boardNo}
+	</update>
+	
+	<select id="getBoardAll" resultType="BoardOutputDto">
+		select a.*
+		from (
+			select
+				@rownum := @rownum +1 as rn,
+				b.board_no as board_no,
+				b.title as title,
+				b.writer_name as writer_name,
+				b.view_cnt as view_cnt,
+				(select count(*) from kka_reply where board_no = b.board_no) as reply_cnt,
+				date_format(b.write_dt, '%Y-%m-%d %H:%i') as write_dt
+			from kka_board b, (select @rownum := 0) tmp
+		) a
+	</select>
+	
+	<insert id="addBoard" parameterType="BoardInputDto">
+		insert into kka_board
+			(
+				writer_name,
+				board_password,
+				title,
+				content
+			)
+		values
+			(
+				#{writer_name},
+				#{board_password},
+				#{title},
+				#{content}
+			)
+	</insert>
+</mapper>

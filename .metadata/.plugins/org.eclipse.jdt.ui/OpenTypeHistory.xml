@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+    <typeInfo handle="=kkaboard_server/src\/main\/java=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;com.kkaboard.api.server.service{ReplyService.java[ReplyService" modifiers="513" timestamp="1654338051000"/>
+    <typeInfo handle="=kkaboard_server/src\/main\/java=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;com.kkaboard.api.server.dao{AbstractDAO.java[AbstractDAO" modifiers="1" timestamp="1654071462000"/>
+    <typeInfo handle="=kkaboard_server/src\/main\/java=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;com.kkaboard.api.server.service{ImageService.java[ImageService" modifiers="513" timestamp="1654566778000"/>
+    <typeInfo handle="=kkaboard_server/\/Library\/Java\/JavaVirtualMachines\/adoptopenjdk-11.jdk\/Contents\/Home\/lib\/jrt-fs.jar`java.desktop=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/11\/docs\/api\/=/&lt;javax.imageio.stream(ImageInputStream.class[ImageInputStream" modifiers="1537" timestamp="1618964067000"/>
+</typeInfoHistroy>

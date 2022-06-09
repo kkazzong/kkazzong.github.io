@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="imageDB">
+	
+	<insert id="addImage" parameterType="ImageInputDto">
+		insert into kka_image
+			(
+				title,
+				file_name,
+				file_path
+			)
+		values
+			(
+				#{title},
+				#{file_name},
+				#{file_path}
+			)
+	</insert>
+	
+	<select id="getImageAll" parameterType="map" resultType="ImageOutputDto">
+		select
+			board_no,
+			title,
+			file_name,
+			file_path,
+			date_format(write_dt, '%Y-%m-%d %H:%i') as write_dt
+		from kka_image
+	</select>
+</mapper>

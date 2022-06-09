@@ -1,0 +1,5 @@
+package com.kkaboard.api.server.service;
+
+public interface ImageService {
+
+}

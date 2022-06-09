@@ -1,0 +1,6 @@
+package com.kkaboard.api.server.dto.input;
+
+@Data
+public class ReplyInputDto {
+
+}

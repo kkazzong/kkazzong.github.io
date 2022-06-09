@@ -1,0 +1,94 @@
+package com.kkaboard.api.server.test.board;
+
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
+import org.springframework.mock.web.MockHttpServletResponse;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.kkaboard.api.server.controller.BoardController;
+import com.kkaboard.api.server.dto.input.BoardInputDto;
+import com.kkaboard.api.server.service.BoardService;
+
+import lombok.extern.slf4j.Slf4j;
+
+@AutoConfigureMockMvc
+@SpringBootTest
+@Slf4j
+public class BoardTest {
+	
+	@Autowired
+	private MockMvc mockMvc;
+	
+	@Autowired
+	private ObjectMapper objectMapper;
+	
+	@Autowired
+	private BoardController boardController;
+	
+	@Autowired
+	private BoardService boardService;
+	
+	
+	
+	@BeforeEach
+	public void beforeEach() {
+		objectMapper = Jackson2ObjectMapperBuilder.json()
+					.featuresToDisable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
+					.modules(new JavaTimeModule())
+					.build();
+	}
+	
+	@DisplayName("보드서비스 컨텍스트로드")
+	@Test
+	void contextLoads() {
+		assert boardService != null && boardController != null;
+	}
+	
+	@DisplayName("게시판 추가 서비스")
+	//@Test
+	public void add() throws Exception{
+		BoardInputDto input = new BoardInputDto();
+		input.setWriter_name("스프링부트테스트");
+		input.setBoard_password("asdf1234");
+		input.setTitle("안녕?");
+		input.setContent("하세여?");
+		
+		assert boardService.addBoard(input) == 1; 
+	}
+	
+	@DisplayName("게시판 추가 컨트롤")
+	@Test
+	public void addC() throws Exception{
+		String url = "/board/add-board";
+		BoardInputDto input = new BoardInputDto();
+		input.setWriter_name("스프링부트테스트");
+		input.setBoard_password("asdf1234");
+		input.setTitle("안녕?");
+		input.setContent("하세여?");
+		
+		String content = objectMapper.writeValueAsString(input);
+		log.info(content);
+		
+		mockMvc.perform(MockMvcRequestBuilders.post(url)
+				.content(content)
+				.contentType(MediaType.APPLICATION_JSON)
+				)
+				.andExpect(result -> {
+					MockHttpServletResponse res = result.getResponse();
+					log.info(res.toString());
+				});
+			
+	}
+}

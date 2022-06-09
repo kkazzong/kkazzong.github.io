@@ -1,0 +1,5 @@
+package com.kkaboard.api.server.test.board;
+
+public class BoardTest {
+
+}
